@@ -1,43 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
-
-const DUMMY_EXPENSES = [
-  {
-    id: "e1",
-    title: "Toilet Paper",
-    amount: 94.12,
-    date: new Date(2020, 7, 14),
-  },
-  { id: "e2", title: "New TV", amount: 799.49, date: new Date(2021, 2, 12) },
-  {
-    id: "e3",
-    title: "Car Insurance",
-    amount: 294.67,
-    date: new Date(2021, 2, 28),
-  },
-  {
-    id: "e4",
-    title: "New Desk (Wooden)",
-    amount: 450,
-    date: new Date(2021, 5, 12),
-  },
-];
+import Notification from "./components/UI/Notification";
+import { currentNotification, updateNotification, resetNotification } from "./store/notificationSlice";
+import { useDispatch, useSelector } from "react-redux";
+import './index.css'
 
 const App = () => {
-  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+  const expenses = useSelector(state => state.listItems)
 
-  const addExpenseHandler = (expense) => {
-    setExpenses((prevExpense) => {
-      return [expense, ...prevExpense];
-    });
-  };
+  const notificationData = useSelector(state => state.notification)
+  const changed = useSelector(state => state.notification.changed)
+  const [notification, setNotification] = useState(notificationData)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (changed) {
+      dispatch(updateNotification({ ...notificationData, changed: false }))
+    }
+    setNotification(notificationData);
+
+  }, [changed])
+
   return (
     <>
-      <NewExpense onAddExpenseData={addExpenseHandler} />
+      {notification.title &&
+        <Notification />
+      }
+      <NewExpense />
       <Expenses expenses={expenses} />
     </>
   );
 };
-
 export default App;

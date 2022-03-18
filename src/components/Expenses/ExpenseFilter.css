@@ -1,43 +1,56 @@
 .expenses-filter {
-    text-indent: 10px;
-    color: #324877;
-    padding: 0 1rem;
-  }
-  
-  .expenses-filter__control {
-    background-color: #ffffffe3;
-    display: flex;
-    width: 80%;
-    height: 100%;
-    align-items: center;
-    justify-content: space-between;
-    margin: 1rem auto;
-    padding: .8rem;
-    border-radius: 30px;
-  }
-  
-  .expenses-filter label {
-    font-weight: bold;
-  }
-  
-  .expenses-filter select {
-    font: inherit;
-    color: #324877;
-    padding: 0.5rem 3rem;
-    font-weight: bold;
-    border-radius: 30px; 
-    appearance: none;
-    outline: none;
-  }
-  .select-wrapper {
-      position: relative;
-  }
-  .select-wrapper::after {
+  text-indent: 10px;
+  color: #324877;
+  padding: 0 1rem;
+}
+
+.expenses-filter__control {
+  background-color: #ffffffe3;
+  display: flex;
+  width: 80%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem auto;
+  padding: 0.8rem;
+  border-radius: 30px;
+}
+
+.expenses-filter label {
+  font-weight: bold;
+}
+
+.expenses-filter select {
+  font: inherit;
+  color: #324877;
+  padding: 0.5rem 3rem;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+  transition: all ease 0.5s;
+}
+.expenses-filter select option {
+  cursor: pointer;
+}
+.expenses-filter select:hover {
+  background-color: #324877;
+  color: #ffffffe3;
+}
+.select-wrapper {
+  position: relative;
+}
+.select-wrapper::after {
   content: "▼";
-  font-size: .8rem;
+  font-size: 0.8rem;
   width: 0;
   top: 10px;
   right: 40px;
   position: absolute;
   user-select: none;
+}
+
+.expenses-filter select:hover .select-wrapper::after {
+  color: #ffffffe3;
 }

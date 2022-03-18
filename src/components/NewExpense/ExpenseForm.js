@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "../../store/listItemsSlice";
+
 
 const ExpenseForm = (props) => {
+  const dispatch = useDispatch();
+
   const [userInput, setUserInput] = useState({
     enteredTitle: '',
     enteredAmount: '',
@@ -30,12 +35,14 @@ const ExpenseForm = (props) => {
     const expenseData = {
       title: userInput.enteredTitle,
       amount: +userInput.enteredAmount,
-      date: new Date(userInput.enteredDate),
+      date: new Date(userInput.enteredDate).toDateString(),
     };
     setUserInput.enteredTitle = '';
     setUserInput.enteredAmount = '';
     setUserInput.enteredDate = '';
-    props.onSaveExpenseData(expenseData);
+  
+    dispatch(addItem(expenseData));
+
     setIsFormClosed(!isFormClosed);
   };
   const formHandler = (event) => {
@@ -47,7 +54,7 @@ const ExpenseForm = (props) => {
       <div>
         <div className="new_expense__actions">
           <button type="button" onClick={formHandler}>
-            <p>Add New Expense</p>
+            <p>Adicionar despesa</p>
           </button>
         </div>
       </div>

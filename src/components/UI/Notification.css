@@ -1,0 +1,113 @@
+.notification__container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 999;
+}
+
+@keyframes blur-in {
+  0% {
+    backdrop-filter: blur(0px);
+    transition: all ease;
+  }
+  100% {
+    backdrop-filter: blur(2px);
+    transition: all ease;
+  }
+  
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateY(-100vh);
+    backdrop-filter: blur(0px);
+    transition: all ease;
+  }
+  100% {
+    transform: translateY(0);
+    backdrop-filter: blur(2px);
+    transition: all ease;
+  }
+}
+
+.backdrop {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  animation: blur-in 1s ease-in-out;
+  backdrop-filter: blur(2px);
+  background-color: #00000030;
+  z-index: 10;
+}
+
+.notification__card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 2.5rem;
+  min-width: 200px;
+  width: 70%;
+  animation: slide-in .7s ease-in-out;
+  max-width: 600px;
+  display: inherit;
+  flex-direction: column;
+  align-items: inherit;
+  justify-content: inherit;
+  text-align: center;
+  z-index: 11;
+}
+
+.notification__close {
+  text-align: end;
+  margin-left: auto;
+  color: rgb(182, 35, 35);
+  font-size: 24pt;
+  margin-bottom: -20px;
+  cursor: pointer;
+  transition: all ease .3s;
+}
+.notification__close:hover {
+  color: rgb(202, 62, 37);
+}
+
+.notification__card h2 {
+  font-size: 16pt;
+  color: #4c36cb;
+}
+.notification__card p {
+  font-size: 12pt;
+  color: #4c36cb;
+}
+
+.notification__input {
+  background-color: #3C2AA0;
+  color: #dfdfe7;
+  padding: .75rem 1.5rem;
+  border-radius: 2.5rem;
+  margin-top: 1rem;
+  font-size: 12pt;
+  cursor: pointer;
+  transition: all ease .5s;
+}
+
+.notification__input:hover,
+.notification__input:focus,
+.notification__input:active {
+  background-color: #4d3bb4;
+  color: #dfdfe7;
+}
+.notification__card .button {
+  background-color: #3C2AA0;
+  margin-top: 1rem;
+
+}
+.notification__card .button:hover {
+  background-color: #4f3bbd;
+  margin-top: 1rem;
+  
+}
+.notification__card .button p {
+  color: #dfdfe7;
+}

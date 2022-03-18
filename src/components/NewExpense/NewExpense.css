@@ -1,7 +1,7 @@
 .new-expense {
     background: radial-gradient(circle at center, rgb(44, 31, 116) -100%, rgb(85, 60, 228));
     padding: 2.5rem;
-    margin: 2rem auto;
+    margin: auto;
     width: 50rem;
     max-width: 95%;
     border-radius: 30px;

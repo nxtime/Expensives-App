@@ -3,4 +3,8 @@
     text-decoration: none;
     box-shadow: none;
     margin: 0;
+    overflow: hidden;
+}
+.expenses-list .card {
+    border-radius: 0;
 }

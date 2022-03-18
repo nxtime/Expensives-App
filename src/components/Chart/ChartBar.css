@@ -12,7 +12,7 @@
     border: 1px solid #313131;
     border-radius: 12px;
     background-color: #332EB9;
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -20,6 +20,7 @@
   
   .chart-bar__fill {
     background-color: #fff;
+    border-radius: 12px;
     width: 100%;
     transition: all 0.3s ease-out;
     box-shadow:  inset 0 2px 8px 1px #0000004b;
@@ -32,4 +33,58 @@
     color: #324877;
     margin-top: 5px;
     margin-bottom: 0;
+  }
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    transition: all ease .5s;
+    opacity: 0;
+    z-index: 999;
+    animation: disappear-in .5s ease;
+  }
+  
+@keyframes appear-in {
+  0% {
+    opacity: 0;
+    width: 0;
+    padding: 0px 0;
+    font-size: 0
+  }
+  100% {
+    opacity: 1;
+    font-size: 11pt;
+    padding: 5px 0;
+  }
+}
+ 
+@keyframes disappear-in {
+  0% {
+    opacity: 1;
+    font-size: 11pt;
+    padding: 5px 0;
+  }
+  100% {
+    opacity: 0;
+    width: 0;
+    padding: 0px 0;
+    font-size: 0
+  }
+}
+  .tooltip:hover .tooltiptext {
+    animation: appear-in .5s ease;
+    font-size: 11pt;
+    opacity: 1;
+    visibility: visible;
   }

@@ -14,7 +14,40 @@ html {
 }
 
 body {
-  margin: 0;
+  top: 0;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
   background: radial-gradient(circle at center, rgb(35, 128, 100) -100%, rgb(52, 36, 194));
 }
 
+#root { 
+  margin: 0;
+  padding: 0;
+}
+.button {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #6378f1;
+  background-color: #ffffff;
+  padding: .75rem 2rem;
+  border-radius: 30px;
+  box-shadow: inset 0 .5px 3px 0.5px #0000009c, inset 0 -5px 2px 1px #3b4375a4, 0 5px 5px 1px #00000020;
+  transition: box-shadow ease-in-out .1s, background-color ease-in-out .5s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ffffffe3;
+  box-shadow:  inset 0 .5px 3px 0.5px #0000009c, inset 0 8px 2px -5px #1f2652a4, 0 5px 10px 1px #00000020;
+}
+.button > p{
+  transform: perspective(12em) rotateX(20deg);
+  filter: brightness(1);
+  transition: all ease-in-out .3s;
+}
+
+.button > p{
+  filter: brightness(1.25);
+  transform: perspective(10em) rotateX(5deg);
+}
